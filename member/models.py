@@ -4,7 +4,7 @@ from cloudinary.models import CloudinaryField
 
 class Member(models.Model):
     Member_Name = models.CharField(max_length=512,blank=False)
-    Email = models.CharField(max_length=512,blank=False)
+    Email = models.EmailField(blank=False)
     Password = models.CharField(max_length=512,blank=False)
     Birth_Day = models.DateField(blank=False)
     Bodybuilding = models.BooleanField(default=False)

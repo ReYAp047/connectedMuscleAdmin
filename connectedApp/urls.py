@@ -15,9 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from rest_framework.urlpatterns import format_suffix_patterns
+
+from coach import views as coachViews
+from member import views as memberViews
+from product import views as productViews
+from transformation import views as transformationViews
 
 admin.site.site_header= "| Connected Muscles |"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+        path('Coach/', coachViews.CoachList.as_view()),
+        
+        path('Member/', memberViews.MemberList.as_view()),
+
+        path('Product/', productViews.ProductList.as_view()),
+        path('Category/', productViews.ProductCategoryList.as_view()),
+
+        path('Transformation/', transformationViews.TransformationList.as_view()),
 ]

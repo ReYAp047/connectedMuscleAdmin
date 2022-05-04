@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'coach',
     'member',
     'product',
+    'transformation',
     'cloudinary',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
