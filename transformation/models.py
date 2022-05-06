@@ -1,5 +1,6 @@
-from tkinter import Image
+
 from django.db import models
+
 class transformation(models.Model):
     Member_Email = models.EmailField(blank=False)
     Week_Date = models.DateField(blank=False)
