@@ -2,7 +2,7 @@ from tkinter import Image
 from django.db import models
 from django.db.models.deletion import CASCADE
 from cloudinary.models import CloudinaryField
-
+from tkinter import Image
 class transformation(models.Model):
     Member_Email = models.EmailField(blank=False)
     Week_Date = models.DateField(blank=False)
