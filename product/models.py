@@ -14,5 +14,6 @@ class Product(models.Model):
     Available = models.BooleanField(default=False)
     Price = models.FloatField(blank=False)
     Product_Image = CloudinaryField('ProductImages', blank=False)
+    Recommended = models.BooleanField(default=False, blank=False)
     def __str__(self):
         return self.Product_Name

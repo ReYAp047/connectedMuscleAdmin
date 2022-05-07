@@ -13,8 +13,16 @@ from .serializers import  TransformationSerializer
 class TransformationList(APIView):
     
     def get(self, request):
-        transformation1 = transformation.objects.all()
-        serializer = TransformationSerializer(transformation1, many = True)
+
+        try:
+            id = request.query_params["id"]
+            if id != None:
+                trans = transformation.objects.get(id=id)
+                serializer = TransformationSerializer(trans)       
+        except:
+            trans1 = transformation.objects.all()
+            serializer = TransformationSerializer(trans1, many = True)
+
         return Response(serializer.data)
 
     def post(self):
