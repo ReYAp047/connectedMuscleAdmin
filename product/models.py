@@ -3,7 +3,7 @@ from django.db.models.deletion import CASCADE
 from cloudinary.models import CloudinaryField
 
 class ProductCategory(models.Model):
-    Titre = models.CharField(max_length=50, blank=False)
+    Titre = models.CharField(max_length=50, blank=False, primary_key=True)
     def __str__(self):
         return self.Titre
 
