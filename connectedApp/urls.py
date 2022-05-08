@@ -21,6 +21,7 @@ from coach import views as coachViews
 from member import views as memberViews
 from product import views as productViews
 from transformation import views as transformationViews
+from programme import views as programmeViews
 
 admin.site.site_header= "| Connected Muscles |"
 
@@ -34,4 +35,18 @@ urlpatterns = [
         path('Category/', productViews.ProductCategoryList.as_view()),
 
         path('Transformation/', transformationViews.TransformationList.as_view()),
+
+        path('Chest/', programmeViews.ChestList.as_view()),
+        path('Back/', programmeViews.BackList.as_view()),
+        path('Shoulders/', programmeViews.ShouldersList.as_view()),
+        path('Legs/', programmeViews.LegsList.as_view()),
+        path('Biceps/', programmeViews.BicepsList.as_view()),
+        path('Triceps/', programmeViews.TricepsList.as_view()),
+        path('Cardio/', programmeViews.CardioList.as_view()),
+        path('Programme/', programmeViews.ProgrammeList.as_view()),
+
 ]
+
+
+
+        

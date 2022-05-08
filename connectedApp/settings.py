@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'member',
     'product',
     'transformation',
+    'programme',
     'cloudinary',
     'rest_framework',
 ]
