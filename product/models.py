@@ -10,7 +10,7 @@ class ProductCategory(models.Model):
 class Product(models.Model):
     Product_Name = models.CharField(max_length=512,blank=False)
     Detail = models.CharField(max_length=2048,blank=False)
-    Category = models.ManyToManyField(ProductCategory, blank=False, default=None)
+    Category = models.ForeignKey(ProductCategory, blank=False, default=None, on_delete=models.CASCADE)
     Available = models.BooleanField(default=False)
     Price = models.FloatField(blank=False)
     Product_Image = CloudinaryField('ProductImages', blank=False)
