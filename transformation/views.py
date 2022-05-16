@@ -12,6 +12,7 @@ from .serializers import  TransformationSerializer
 #12
 class TransformationList(APIView):
         serializer_class  = TransformationSerializer
+        lookup_field = 'Member_Email'
 
         def get_queryset(self):
             Transformations = transformation.objects.all()
@@ -21,7 +22,7 @@ class TransformationList(APIView):
             Member_Email = request.query_params["Member_Email"]
             print(Member_Email)
 
-            transformations = self.get_queryset()
+            transformations = transformation.objects.filter(Member_Email=Member_Email)
             serializer = TransformationSerializer(transformations, many = True)
 
             return Response(serializer.data)   
