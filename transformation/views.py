@@ -11,19 +11,20 @@ from .serializers import  TransformationSerializer
 
 #12
 class TransformationList(APIView):
-    
-    def get(self, request):
+        serializer_class  = TransformationSerializer
 
-        try:
-            id = request.query_params["id"]
-            if id != None:
-                trans = transformation.objects.get(Member_Email=id)
-                serializer = TransformationSerializer(trans)       
-        except:
-            trans1 = transformation.objects.all()
-            serializer = TransformationSerializer(trans1, many = True)
+        def get_queryset(self):
+            Transformations = transformation.objects.all()
+            return Transformations
+        
+        def get(self, request):
+            Member_Email = request.query_params["Member_Email"]
+            print(Member_Email)
 
-        return Response(serializer.data)
+            transformations = self.get_queryset()
+            serializer = TransformationSerializer(transformations, many = True)
+
+            return Response(serializer.data)   
 
     def post(self):
         pass
