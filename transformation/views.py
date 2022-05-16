@@ -16,7 +16,7 @@ class TransformationList(APIView):
 
         try:
             Member_Email = request.query_params["Member_Email"]
-            if id != None:
+            if Member_Email != None:
                 trans = transformation.objects.get(Member_Email=Member_Email)
                 serializer = TransformationSerializer(trans)       
         except:
