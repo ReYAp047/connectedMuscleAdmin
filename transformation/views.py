@@ -15,11 +15,10 @@ class TransformationList(APIView):
     def get(self, request):
 
         try:
-            queryset = transformation.objects.all()
-            username = self.request.query_params.get('username')
-            if username is not None:
-                queryset = queryset.filter(Member_Email=username) 
-            return queryset     
+            id = request.query_params["id"]
+            if id != None:
+                trans = transformation.objects.get(Member_Email=id)
+                serializer = TransformationSerializer(trans)       
         except:
             trans1 = transformation.objects.all()
             serializer = TransformationSerializer(trans1, many = True)
